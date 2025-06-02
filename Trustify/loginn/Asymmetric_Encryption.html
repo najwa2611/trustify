@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Key Management - Login</title>
+    <style>
+        :root {
+            /* Color Palette */
+            --primary-bg-color: linear-gradient(to right, #4b0082, #8a2be2); /* Deep purple gradient */
+            --primary-text-color: #ecf0f1; /* Light gray */
+            --accent-color: #800080; /* Purple */
+            --accent-hover-color: #551a8b; /* Darker purple */
+            --secondary-bg-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+
+            /* Typography */
+            --font-family: 'Roboto', 'Arial', sans-serif;
+            --header-font-family: 'Montserrat', 'Arial', sans-serif;
+
+            /* Layout */
+            --header-height: 65px;
+            --border-radius: 6px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--primary-bg-color);
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-family: var(--header-font-family);
+        }
+
+        .content {
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--secondary-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-text-color);
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover-color);
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            .content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>RSA Key Management</h1>
+
+    <div class="content">
+        <?php if (!empty($error_message)): ?>
+            <div class="error"><?php echo htmlspecialchars($error_message); ?></div>
+        <?php endif; ?>
+
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <input type="email" name="email" placeholder="Enter your email" required 
+                   value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>">
+
+            <input type="password" name="password" placeholder="Enter your password" required>
+
+            <label>
+                <input type="checkbox" name="use_saved_keys"> 
+                Use Saved RSA Keys
+            </label>
+
+            <button type="submit">Proceed</button>
+        </form>
+    </div>
+</body>
+</html>

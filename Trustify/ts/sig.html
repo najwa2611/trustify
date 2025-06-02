@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Signature Service</title>
+    <style>
+        :root {
+            --bg-color: #2c3e50;
+            --text-color: #ecf0f1;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --error-color: #e74c3c;
+            --border-radius: 5px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: var(--accent-color);
+        }
+        form {
+            background: #34495e;
+            padding: 20px;
+            margin: 10px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: var(--border-radius);
+        }
+        input, textarea {
+            background: #2c3e50;
+            color: var(--text-color);
+        }
+        button {
+            background: var(--accent-color);
+            color: var(--text-color);
+            cursor: pointer;
+        }
+        button:hover {
+            background: var(--accent-hover);
+        }
+        .error {
+            color: var(--error-color);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital Signature Service</h1>
+
+    <form action="signature_service.php" method="POST">
+        <h2>Generate RSA Keys</h2>
+        <input type="hidden" name="action" value="generate_keys">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Generate Keys</button>
+    </form>
+
+    <form action="signature_service.php" method="POST">
+        <h2>Sign a Message</h2>
+        <input type="hidden" name="action" value="sign_message">
+        <label>Message</label>
+        <textarea name="message" rows="4" placeholder="Enter your message" required></textarea>
+        <label>Private Key</label>
+        <textarea name="private_key" rows="4" placeholder="Enter your private key" required></textarea>
+        <button type="submit">Sign Message</button>
+    </form>
+
+    <form action="signature_service.php" method="POST">
+        <h2>Verify Signature</h2>
+        <input type="hidden" name="action" value="verify_signature">
+        <label>Original Message</label>
+        <textarea name="message" rows="4" placeholder="Enter the original message" required></textarea>
+        <label>Signature</label>
+        <textarea name="signature" rows="4" placeholder="Enter the signature" required></textarea>
+        <label>Public Key</label>
+        <textarea name="public_key" rows="4" placeholder="Enter the public key" required></textarea>
+        <button type="submit">Verify Signature</button>
+    </form>
+</body>
+</html>

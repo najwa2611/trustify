@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Generator</title>
+    <style>
+        :root {
+            /* Color Palette */
+            --primary-bg-color: linear-gradient(to right, #4b0082, #8a2be2); /* Deep purple gradient */
+            --primary-text-color: #ecf0f1; /* Light gray */
+            --accent-color: #800080; /* Purple */
+            --accent-hover-color: #551a8b; /* Darker purple */
+            --secondary-bg-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+
+            /* Typography */
+            --font-family: 'Roboto', 'Arial', sans-serif;
+            --header-font-family: 'Montserrat', 'Arial', sans-serif;
+
+            /* Layout */
+            --header-height: 65px;
+            --border-radius: 6px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--primary-bg-color);
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-family: var(--header-font-family);
+        }
+
+        form {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--secondary-bg-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        textarea, select, input, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-text-color);
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus, select:focus, input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+        }
+
+        label {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        select {
+            appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, var(--accent-color) 50%);
+            background-position: calc(100% - 20px) calc(1em + 2px);
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover-color);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            form {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        form {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hash Generator</h1>
+    <form action="hash_generator.php" method="POST">
+        <textarea name="data" placeholder="Enter text to hash..." rows="5" required></textarea>
+        <label for="hash_algorithm">Select Hash Algorithm:</label>
+        <select name="hash_algorithm" id="hash_algorithm">
+            <option value="sha256">SHA-256</option>
+            <option value="sha512">SHA-512</option>
+            <option value="sha3-256">SHA-3-256</option>
+            <option value="sha3-512">SHA-3-512</option>
+        </select>
+        <button type="submit">Generate Hash</button>
+    </form>
+</body>
+</html>

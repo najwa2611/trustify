@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Signature Service</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* Gradient de fond */
+            --text-color: #ecf0f1; /* Texte clair */
+            --border-radius: 8px; /* Bords arrondis */
+            --container-bg: rgba(0, 0, 0, 0.7); /* Fond des formulaires */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        form {
+            background: var(--container-bg);
+            padding: 30px;
+            margin: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(236, 240, 241, 0.7);
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.4);
+            outline: none;
+        }
+
+        /* Nouvelle couleur pour les boutons avec dégradé */
+        .btn-grad {
+            background-image: linear-gradient(to right, #AA076B 0%, #61045F 51%, #AA076B 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .error {
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Digital Signature Service</h1>
+
+    <!-- Formulaire pour générer les clés RSA -->
+    <form action="sig.php" method="POST">
+        <h2>Generate RSA Keys</h2>
+        <input type="hidden" name="action" value="generate_keys">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <button type="submit" class="btn-grad">Generate Keys</button>
+    </form>
+    <!-- Signer un message -->
+<form action="sig.php" method="POST">
+    <h2>Signer un message</h2>
+    <input type="hidden" name="action" value="sign_message">
+    <label>Email</label>
+    <input type="email" name="email" required>
+    <label>Message</label>
+    <textarea name="message" required></textarea>
+    <button type="submit" class="btn-grad">Signer le message</button>
+</form>
+
+<!-- Signer un fichier -->
+<form action="sig.php" method="POST" enctype="multipart/form-data">
+    <h2>Signer un fichier</h2>
+    <input type="hidden" name="action" value="sign_file">
+    <label>Email</label>
+    <input type="email" name="email" required>
+    <label>File</label>
+    <input type="file" name="file" required>
+    <button type="submit" class="btn-grad">Signer le fichier</button>
+</form>
+
+  <!-- Verify Signature -->
+  <form action="sig.php" method="POST" enctype="multipart/form-data">
+    <h2>Verify Signature</h2>
+    <input type="hidden" name="action" value="verify_signature">
+    <label>Original Message/File</label>
+    <textarea name="message" rows="4" placeholder="Enter the original message (leave empty if uploading a file)"></textarea>
+    <label>File (Optional)</label>
+    <input type="file" name="file" accept=".jpg,.jpeg,.png,.pdf">
+    <label>Signature</label>
+    <textarea name="signature" rows="4" placeholder="Paste signature here" required></textarea>
+    <label>Public Key</label>
+    <textarea name="public_key" rows="6" placeholder="Paste public key here" required></textarea>
+    <button type="submit" class="btn-grad">Verify Signature</button>
+</form>
+</body>
+</html>

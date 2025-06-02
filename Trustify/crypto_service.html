@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Service</title>
+</head>
+<body>
+    <h1>Crypto Service</h1>
+    <form id="cryptoForm" method="POST" action="service.php" enctype="multipart/form-data">
+        <label for="action">Action:</label>
+        <select id="action" name="action">
+            <option value="encrypt">Encrypt</option>
+            <option value="decrypt">Decrypt</option>
+            <option value="hash">Hash</option>
+            <option value="verify_hash">Verify Hash</option>
+            <option value="sign">Sign</option>
+            <option value="verify_signature">Verify Signature</option>
+            <option value="generate_certificate">Generate Certificate</option>
+        </select><br><br>
+
+        <label for="data">Data:</label>
+        <input type="text" id="data" name="data"><br><br>
+
+        <label for="key">Key:</label>
+        <input type="text" id="key" name="key"><br><br>
+
+        <label for="hashed_data">Hashed Data:</label>
+        <input type="text" id="hashed_data" name="hashed_data"><br><br>
+
+        <label for="private_key">Private Key:</label>
+        <input type="text" id="private_key" name="private_key"><br><br>
+
+        <label for="public_key">Public Key:</label>
+        <input type="text" id="public_key" name="public_key"><br><br>
+
+        <label for="signature">Signature:</label>
+        <input type="text" id="signature" name="signature"><br><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country"><br><br>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state"><br><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city"><br><br>
+
+        <label for="organization">Organization:</label>
+        <input type="text" id="organization" name="organization"><br><br>
+
+        <label for="pdf">Upload PDF:</label>
+        <input type="file" id="pdf" name="pdf"><br><br>
+
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

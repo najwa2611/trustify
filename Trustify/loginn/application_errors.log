@@ -1,0 +1,6 @@
+[2024-12-07 11:49:08] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users' doesn't exist
+[2024-12-07 11:49:29] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users' doesn't exist
+[2024-12-07 11:49:45] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users' doesn't exist
+[2024-12-07 11:52:05] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users' doesn't exist
+[2024-12-07 12:04:05] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users' doesn't exist
+[2024-12-07 12:04:35] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users' doesn't exist

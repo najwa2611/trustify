@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Signature Service</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+            --text-color: #ecf0f1;
+            --border-radius: 10px;
+            --container-bg: rgba(0, 0, 0, 0.7);
+            --btn-bg: linear-gradient(to right, #AA076B 0%, #61045F 51%, #AA076B 100%);
+            --btn-hover-bg: linear-gradient(to right, #7303c0 0%, #61045F 51%, #7303c0 100%);
+            --btn-padding: 18px 40px;
+            --input-padding: 12px;
+            --font-size: 1.1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            margin: 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        form {
+            background: var(--container-bg);
+            padding: 30px;
+            margin: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            color: var(--text-color);
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        input, textarea, button, a {
+            width: 100%;
+            padding: var(--input-padding);
+            margin-bottom: 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: var(--font-size);
+            text-align: center;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(236, 240, 241, 0.7);
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.4);
+            outline: none;
+        }
+
+        .btn-grad, a {
+            background: var(--btn-bg);
+            padding: var(--btn-padding);
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            border-radius: 10px;
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-grad:hover, a:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .file-input {
+            display: block;
+            width: 100%;
+            padding: var(--input-padding);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group button, .form-group a {
+            width: 100%;
+        }
+    </style>
+<body>
+    <h1>Digital Signature Service</h1>
+
+    <!-- Boîte de génération des clés RSA -->
+    <form id="generateKeysForm" action="signew.php" method="POST">
+        <h2>Generate RSA Keys</h2>
+        <input type="hidden" name="action" value="generate_keys">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <button type="submit" class="btn-grad">Generate Keys</button>
+
+        <!-- Télécharger la clé privée -->
+        <a id="privateKeyDownload" href="#" download class="btn-grad" style="display:none;">Download Private Key</a>
+
+        <!-- Télécharger la clé publique -->
+        <a id="publicKeyDownload" href="#" download class="btn-grad" style="display:none;">Download Public Key</a>
+    </form>
+
+    <!-- Boîte de signature d'un message -->
+   <!-- Boîte de signature d'un message -->
+<form action="signew.php" method="POST" enctype="multipart/form-data">
+    <h2>Sign a Message</h2>
+    <input type="hidden" name="action" value="sign_message">
+    
+    <label>Message</label>
+    <textarea name="message" rows="5" placeholder="Enter your message"></textarea>
+    
+    <label>Upload a File (optional)</label>
+    <input type="file" name="file" class="file-input" accept="image/*, .pdf, .txt">
+    
+    <!-- Bouton pour entrer la clé privée -->
+    <label for="private_key">Enter your Private Key</label>
+    <input type="file" name="private_key" id="private_key" class="file-input" accept=".pem" required>
+    
+    <div class="form-group">
+        <button type="submit" class="btn-grad">Sign Message</button>
+    </div>
+</form>
+
+
+    <!-- Boîte de vérification de la signature -->
+    <form action="signew.php" method="POST" enctype="multipart/form-data">
+        <h2>Verify Signature</h2>
+        <input type="hidden" name="action" value="verify_signature">
+        
+        <label>Original Message</label>
+        <textarea name="message" rows="5" placeholder="Enter the original message (leave empty if uploading a file)"></textarea>
+        
+        <label>Signature</label>
+        <textarea name="signature" rows="5" placeholder="Paste signature here" required></textarea>
+        
+        <label>Upload a File (optional)</label>
+        <input type="file" name="file" class="file-input" accept="image/*, .pdf, .txt">
+        
+        <!-- Bouton pour entrer la clé publique -->
+        <label for="public_key">Enter your Public Key</label>
+        <input type="file" name="public_key" id="public_key" class="file-input" accept=".pem" required>
+        
+        <div class="form-group">
+            <button type="submit" class="btn-grad">Verify Signature</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('generateKeysForm').onsubmit = async function (event) {
+            event.preventDefault(); // Empêcher l'envoi du formulaire
+
+            let formData = new FormData(this);
+
+            // Faire une requête POST pour générer les clés
+            let response = await fetch('signew.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            let result = await response.json();
+
+            if (result.status === 'success') {
+                // Afficher les liens de téléchargement
+                document.getElementById('privateKeyDownload').href = result.private_key_url;
+                document.getElementById('publicKeyDownload').href = result.public_key_url;
+
+                // Rendre les boutons visibles
+                document.getElementById('privateKeyDownload').style.display = 'block';
+                document.getElementById('publicKeyDownload').style.display = 'block';
+            } else {
+                alert('Error generating keys: ' + result.message);
+            }
+        };
+    </script>
+</body>
+</html>

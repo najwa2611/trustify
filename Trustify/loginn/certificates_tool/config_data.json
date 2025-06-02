@@ -1,0 +1,9 @@
+{
+    "common_name": "omaymat",
+    "organization": "ensa",
+    "locality": "marrakech",
+    "country": "MA",
+    "timestamp": "2024-12-06 17:35:05",
+    "private_key_path": "C:\/xampp\/htdocs\/test\/certificates\/private_key.pem",
+    "certificate_path": "C:\/xampp\/htdocs\/test\/certificates\/certificate.crt"
+}

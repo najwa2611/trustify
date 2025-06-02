@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création et Vérification de Signature</title>
+</head>
+<body>
+    <h1>Création et Vérification de Signature RSA</h1>
+    <form action="sig.php" method="POST" enctype="multipart/form-data">
+        <h2>Génération de signature</h2>
+        <label for="message">Message à signer :</label>
+        <textarea id="message" name="message" rows="5" cols="50" required></textarea>
+        <br><br>
+        <button type="submit" name="action" value="sign">Signer</button>
+        
+        <hr>
+
+        <h2>Vérification de signature</h2>
+        <label for="verify_message">Message à vérifier :</label>
+        <textarea id="verify_message" name="verify_message" rows="5" cols="50" required></textarea>
+        <br><br>
+        <label for="signature">Signature :</label>
+        <textarea id="signature" name="signature" rows="5" cols="50" required></textarea>
+        <br><br>
+        <label for="publicKey">Clé publique :</label>
+        <textarea id="publicKey" name="publicKey" rows="5" cols="50" required></textarea>
+        <br><br>
+        <button type="submit" name="action" value="verify">Vérifier</button>
+    </form>
+</body>
+</html>

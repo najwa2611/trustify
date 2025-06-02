@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/style1.css">
+
+        <title>Trustify Project</title>
+        <style>
+             /* Ajout direct du CSS corrigé */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d1b27;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Card Grid */
+        .place__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .place__card {
+            background-color: #81215c;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(67, 3, 56, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .place__card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Image Styling */
+        .place__img {
+            width: 100%;
+            height: 221px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid #44444400;
+        }
+
+        /* Content Styling */
+        .place__content {
+            padding: 20px;
+        }
+
+        .place__data {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .place__title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .place__subtitle {
+            font-size: 16px;
+            color: #bbb;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+    
+
+        /* Button Styling */
+        .place__button {
+            display: block;
+            text-align: center;
+            padding: 10px 15px;
+            background-color: #66ccff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        .place__button:hover {
+            background-color: #f8a1f3;
+        } 
+        </style>
+    </head>
+    <body>
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">Trustify</a>
+                
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">About</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#video" class="nav__link">Why Us</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#team" class="nav__link">Services</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__dark">
+                        <!-- Theme change button -->
+                        <span class="change-theme-name">Dark mode</span>
+                        <i class="ri-moon-line change-theme" id="theme-button"></i>
+                    </div>
+
+                    <i class="ri-close-line nav__close" id="nav-close"></i>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-function-line"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                    <img src="assets/img/Trustify (1).jpg" alt="" class="home__img">
+    
+                <div class="home__container container grid">
+                    <div class="home__data">
+                        <span class="home__data-subtitle">Inspiring confidence</span>
+                        <h1 class="home__data-title">Protecting <br> Trust <b> Securing <br> Tomorrow</b></h1>
+                        <a href="#about" class="button">Explore</a>
+                    </div>
+                </div>
+            </section>
+        
+      
+            <!--==================== ABOUT ====================-->
+            <section class="about section" id="about">
+                <div class="about__container container grid">
+                    <div class="about__data">
+                        <h2 class="section__title about__title">More Information <br> About The Site</h2>
+                        <p class="about__description">
+                            This site, meticulously crafted by three Moroccan students under the expert supervision of Professor Anas Aboulkalam, strives to provide quick, efficient, and innovative solutions. By blending creativity and expertise, it addresses a wide range of challenges with precision and unwavering dedication. Whether tackling technical problems or creative hurdles, this platform is designed to deliver outstanding results that meet your needs with remarkable accuracy and commitment.
+                        </p>
+                        <a href="#team" class="button">Try it</a>
+                    </div>
+            
+                    <div class="about__img">
+                        <div class="about__img-overlay">
+                            <img src="assets/img/aboulkalam1.jpeg" alt="About Image" class="about__img-one">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+                  <!--==================== VIDEO ====================-->
+                  <section class="video section" id="video">
+                    <h2 class="section__title">Description Video</h2>
+    
+                    <div class="video__container container">
+                        <p class="video__description">Here’s a video summarizing all the services our site offers,
+                            showcasing our commitment to providing quick, efficient,
+                            and innovative solutions tailored to meet your needs with precision and care.
+                        </p>
+    
+                        <div class="video__content">
+                            <video id="video-file">
+                                <source src="assets/img/videoAI.mp4" type="video/mp4">
+                            </video>
+    
+                            <button class="button button--flex video__button" id="video-button">
+                                <i class="ri-play-line video__button-icon" id="video-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            <!--==================== Team ====================-->
+            <div class="container" id="team">
+                <h1 style="text-align: center;">Our Services</h1>
+                <div class="place__grid">
+                    <!-- Symmetric Encryption -->
+                    <div class="place__card">
+                        <img src="assets/img/aes1.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Symmetric Encryption</h3>
+                                <span class="place__subtitle">using AES </span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/index.php?service=Symmetric_Encryption" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Asymmetric Encryption -->
+                    <div class="place__card">
+                        <img src="assets/img/coffre.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Asymmetric Encryption</h3>
+                                <span class="place__subtitle">using RSA</span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/index.php?service=rsa" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Hashing -->
+                    <div class="place__card">
+                        <img src="assets/img/hashing.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Hashing</h3>
+                                <span class="place__subtitle">using SHA 256</span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/index.php?service=Hashing" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Signature -->
+                    <div class="place__card">
+                        <img src="assets/img/sig.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Signature</h3>
+                                <span class="place__subtitle">using RSA + Hashing</span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/index.php?service=Signature" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Certificate -->
+                    <div class="place__card">
+                        <img src="assets/img/certificate.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Certificate</h3>
+                                <span class="place__subtitle">Secure your data</span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/index.php?service=Certificate" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Coffre-Fort -->
+                    <div class="place__card">
+                        <img src="assets/img/c1.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Coffre-Fort</h3>
+                                <span class="place__subtitle">Secure your files</span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/index.php?service=coffre_fort" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Blockchain -->
+                    <div class="place__card">
+                        <img src="assets/img/blockchain.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Blockchain</h3>
+                                <span class="place__subtitle">Decentralized solutions</span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/index.php?service=blockchain" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="place__card">
+                        <img src="assets/img/coffre.jpg" alt="" class="place__img">
+                        <div class="place__content">
+                            <div class="place__data">
+                                <h3 class="place__title">Proxy</h3>
+                                <span class="place__subtitle">Secure Access</span>
+                                <span class="place__price"></span>
+                            </div>
+                            <a href="http://localhost/Trustify/loginn/proxy.html" class="button place__button">
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content grid">
+                    <div class="footer__data">
+                        <h3 class="footer__title">Trustify</h3>
+                        <p class="footer__description">Premier cryptography site for <br> unmatched security and privacy
+                            <br> solutions.
+                        </p>
+                        <div>
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                                <i class="ri-facebook-box-fill"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="footer__social">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                                <i class="ri-youtube-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">About</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="#about" class="footer__link">About Us</a>
+                        </ul>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Company</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="#video" class="footer__link">Why us</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Our Solutions</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="#team" class="footer__link">Services</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__rights">
+                    <p class="footer__copy">&#169; 2024 Trustify. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        
+
+        <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+        
+        <!--=============== SCROLL REVEAL===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+        
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+
+    </body>
+    <!--========== login redirection ==========-->
+    <script src="login.js"></script>
+</html>

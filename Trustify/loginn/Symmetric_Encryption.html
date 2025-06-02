@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AES Encryption/Decryption</title>
+    <style>
+        :root {
+            /* Color Palette */
+            --primary-bg-color: linear-gradient(to right, #4b0082, #8a2be2); /* Deep purple gradient */
+            --primary-text-color: #ecf0f1; /* Light gray */
+            --accent-color: #800080; /* Purple */
+            --accent-hover-color: #551a8b; /* Darker purple */
+            --secondary-bg-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+
+            /* Typography */
+            --font-family: 'Roboto', 'Arial', sans-serif;
+            --header-font-family: 'Montserrat', 'Arial', sans-serif;
+
+            /* Layout */
+            --border-radius: 6px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--primary-bg-color);
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-family: var(--header-font-family);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        form {
+            background-color: var(--secondary-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: var(--primary-text-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        textarea, input, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-text-color);
+            transition: border-color 0.3s ease;
+        }
+
+        textarea::placeholder, input::placeholder {
+            color: rgba(236, 240, 241, 0.7);
+        }
+
+        textarea:focus, input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover-color);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>AES Encryption & Decryption</h1>
+    <div class="container">
+        <!-- AES Encryption Form -->
+        <form action="process.php" method="POST">
+            <h2>Encryption</h2>
+            <textarea name="data" placeholder="Enter text to encrypt..." rows="5" required></textarea>
+            <button type="submit" name="operation" value="encrypt">Encrypt</button>
+        </form>
+
+        <!-- AES Decryption Form -->
+        <form action="process.php" method="POST">
+            <h2>Decryption</h2>
+            <textarea name="encrypted_data" placeholder="Enter encrypted data..." rows="5" required></textarea>
+            <input type="text" name="key" placeholder="Enter the key used for encryption..." required>
+            <input type="text" name="iv" placeholder="Enter the IV used for encryption..." required>
+            <button type="submit" name="operation" value="decrypt">Decrypt</button>
+        </form>
+    </div>
+</body>
+</html>

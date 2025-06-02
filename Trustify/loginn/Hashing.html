@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Generator</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* Gradient de fond */
+            --text-color: #ecf0f1; /* Texte clair */
+            --border-radius: 8px; /* Bords arrondis */
+            --container-bg: rgba(0, 0, 0, 0.7); /* Fond des formulaires */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        form {
+            background: var(--container-bg);
+            padding: 30px;
+            margin: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(236, 240, 241, 0.7);
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.4);
+            outline: none;
+        }
+
+        /* Nouvelle couleur pour les boutons avec dégradé */
+        .btn-grad {
+            background-image: linear-gradient(to right, #AA076B 0%, #61045F 51%, #AA076B 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .error {
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Hash Generator</h1>
+    <form action="hash_generator.php" method="POST">
+        <textarea name="data" placeholder="Enter text to hash..." rows="5" required></textarea>
+        <label for="hash_algorithm">Select Hash Algorithm:</label>
+        <select name="hash_algorithm" id="hash_algorithm">
+            <option value="sha256">SHA-256</option>
+            <option value="sha512">SHA-512</option>
+            <option value="sha3-256">SHA-3-256</option>
+            <option value="sha3-512">SHA-3-512</option>
+        </select>
+        <button type="submit" class="btn-grad">Generate Hash</button>
+    </form>
+</body>
+</html>

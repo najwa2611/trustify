@@ -1,0 +1,16 @@
+[2024-12-08 19:31:46] Encrypted Input (Base64): DE7b9flVw3mzE4AXDuBLgl3mVI9C66/02sYBWmBl5rnOyWEiDT1jbo5sdRfKCchydsOQNqulufMD9P9db7G9OJKz79e92/9j/UiFqMYjDew24JY4JItZRrNxmr0NIh2YlVUWTFiFa2HEiGPl+2KqDM6EL1suKzUKEKTE+xcBkcBW0RlFHJ8moAv8KkDAt8jAO1OcqYiy9L/E638y23r0/IGsFpGqvDYTzLirAPhJJKDd0Jeo+KWSuRhbFf9B6FxYc7ALfO0ZuElphCc1HIMx04bj2Ebvx55hWdigqKOcrnhekwQ/YzRZmeg9gf/q/eYGp3jQATirh2kNtbKhksZkBg==
+[2024-12-08 19:31:46] Private Key Length: 1708
+[2024-12-08 19:31:46] Decoded Data Length: 256
+[2024-12-08 19:31:46] Decoded Data (Hex): 0c4edbf5f955c379b31380170ee04b825de6548f42ebaff4dac6015a6065e6b9cec961220d3d636e8e6c7517ca09c87276c39036aba5b9f303f4ff5d6fb1bd3892b3efd7bddbff63fd4885a8c6230dec36e09638248b5946b3719abd0d221d989555164c58856b61c48863e5fb62aa0cce842f5b2e2b350a10a4c4fb170191c056d119451c9f26a00bfc2a40c0b7c8c03b539ca988b2f4bfc4eb7f32db7af4fc81ac1691aabc3613ccb8ab00f84924a0ddd097a8f8a592b9185b15ff41e85c5873b00b7ced19b849698427351c8331d386e3d846efc79e6159d8a0a8a39cae785e93043f63345999e83d81ffeafde606a778d00138ab87690db5b2a192c66406
+[2024-12-08 19:31:46] Trying Key Format: -----BEGIN PRIVATE KEY-----
+MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCqjv+KiB9rYrfH
+/QGNgQj...
+[2024-12-08 19:31:46] Key loaded successfully
+[2024-12-08 19:31:46] Attempting decryption with padding: 1
+[2024-12-08 19:31:46] Decryption failed for padding 1: error:0909006C:PEM routines:get_name:no start line; error:0909006C:PEM routines:get_name:no start line; error:0407109F:rsa routines:RSA_padding_check_PKCS1_type_2:pkcs decoding error; error:04065072:rsa routines:rsa_ossl_private_decrypt:padding check failed
+[2024-12-08 19:31:46] Attempting decryption with padding: 4
+[2024-12-08 19:31:46] Decryption failed for padding 4: error:04099079:rsa routines:RSA_padding_check_PKCS1_OAEP_mgf1:oaep decoding error; error:04065072:rsa routines:rsa_ossl_private_decrypt:padding check failed
+[2024-12-08 19:31:46] Attempting decryption with padding: 3
+[2024-12-08 19:31:46] Decryption successful with padding: 3
+[2024-12-08 19:31:46] Decrypted Data: „R•ÀÝ=©ÜÓ˜QcGqn™F‡.Ë(‹ã–Ù²n#fUøn‚m‚ª«¶ÐP›šH˜ëG·ãD)1t+>Ñ²NGG-üñ5÷º?EÇÑÝ·ŠªÆxÃL—uû¦*k:
+#‚0{ý§gÙð=^$Ï(p&S{+Œ^Þ³/¯âwãøüøEËPÑœfªW#µ½“á˜U‹`,6ÑÀâÔ­€¢”oŽ7­®$é/×Á‡¼vV‡œ}å}Æ‚÷8O¶äÖàH¶òƒ«·ù2û”iúñøc¼.#å±¿ù#|ñÏAŸ¶Žð½!±©ÖòOŸ}gÊ÷•YÀ@ÿ(_1ŸU

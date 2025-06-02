@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Key Management</title>
+    <style>
+        :root {
+            --primary-color: #4b0082;
+            --secondary-color: #8a2be2;
+            --text-color: #ffffff;
+            --error-color: #ff3333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+        }
+
+        .error {
+            color: var(--error-color);
+            margin-bottom: 20px;
+        }
+
+        .key-display {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RSA Key Management</h1>
+        
+        <?php if (!empty($error_message)): ?>
+            <div class="error"><?php echo htmlspecialchars($error_message); ?></div>
+        <?php endif; ?>
+        
+        <?php if (!isset($_SESSION['email'])): ?>
+            <!-- Login Form -->
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" name="login">Login</button>
+            </form>
+        <?php else: ?>
+            <!-- Key Management Section -->
+            <div class="key-display">
+                <h2>Your Public Key</h2>
+                <textarea readonly rows="5"><?php echo htmlspecialchars($public_key); ?></textarea>
+                
+                <form method="post">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="generate_new_keys" value="1">
+                            Generate New Keys
+                        </label>
+                    </div>
+                    <button type="submit">Update Keys</button>
+                </form>
+            </div>
+            
+            <form method="post" action="logout.php">
+                <button type="submit">Logout</button>
+            </form>
+        <?php endif; ?>
+    </div>
+</body>
+</html>

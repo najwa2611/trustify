@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECC Encryption & Decryption</title>
+  <script src="https://cdn.jsdelivr.net/npm/elliptic@6.5.4").min.js"></script>
+</head>
+<body>
+  <h2>ECC Encryption and Decryption</h2>
+  
+  <label for="data">Enter data to encrypt:</label>
+  <input type="text" id="data" placeholder="Text to encrypt">
+  
+  <button onclick="encryptData()">Encrypt</button>
+  <br><br>
+  
+  <h3>Encrypted Data (to be sent to backend):</h3>
+  <p id="encryptedData"></p>
+  
+  <h3>Decrypted Data from Backend:</h3>
+  <p id="decryptedData"></p>
+  
+  <script>
+    // Initialize the elliptic library using secp256k1 curve (commonly used curve)
+    const elliptic = new elliptic.ec('secp256k1');
+    
+    // Generate a public/private key pair
+    const keyPair = elliptic.genKeyPair();
+    const publicKey = keyPair.getPublic().encode('hex'); // Get public key in hex for encryption
+    
+    // Encrypt data when the "Encrypt" button is clicked
+    function encryptData() {
+      const data = document.getElementById('data').value;
+      const message = Buffer.from(data, 'utf8');  // Convert input message to bytes
+      
+      // Encrypt the message using ECC with the public key
+      const encryptedMessage = encryptWithECC(message, publicKey);
+      
+      // Display the encrypted message
+      document.getElementById('encryptedData').innerText = encryptedMessage;
+      
+      // Send the encrypted message to the PHP backend for decryption
+      sendToBackend(encryptedMessage);
+    }
+
+    // Encrypt data using the public key
+    function encryptWithECC(message, pubKey) {
+      const key = elliptic.keyFromPublic(pubKey, 'hex');
+      const encrypted = key.encrypt(message.toString('hex'));  // Encrypt the message using the public key
+      return JSON.stringify(encrypted);  // Return the encrypted message as a JSON string
+    }
+
+    // Send the encrypted message to the backend (PHP) for decryption
+    function sendToBackend(encrypted) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "eccpr.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          // Display the decrypted data returned from the backend
+          document.getElementById('decryptedData').innerText = xhr.responseText;
+        } else {
+          alert("Error: " + xhr.statusText);
+        }
+      };
+      // Send the encrypted data to PHP
+      xhr.send("encrypted=" + encodeURIComponent(encrypted));
+    }
+  </script>
+</body>
+</html>

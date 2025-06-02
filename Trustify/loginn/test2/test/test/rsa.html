@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption/Decryption</title>
+</head>
+<body>
+    <h1>RSA Encryption and Decryption</h1>
+
+    <h2>Generate RSA Keys</h2>
+    <form action="rsapr.php" method="POST">
+        <button type="submit" name="generate_keys">Generate Keys</button>
+    </form>
+
+    <h2>Encrypt Data</h2>
+    <form action="rsapr.php" method="POST">
+        <textarea name="data_to_encrypt" rows="4" cols="50" placeholder="Enter text to encrypt..." required></textarea><br>
+        <textarea name="public_key" rows="4" cols="50" placeholder="Enter public key..." required></textarea><br>
+        <button type="submit" name="encrypt">Encrypt</button>
+    </form>
+
+    <h2>Decrypt Data</h2>
+    <form action="rsapr.php" method="POST">
+        <textarea name="encrypted_data" rows="4" cols="50" placeholder="Enter encrypted data..." required></textarea><br>
+        <textarea name="private_key" rows="4" cols="50" placeholder="Enter private key..." required></textarea><br>
+        <button type="submit" name="decrypt">Decrypt</button>
+    </form>
+
+    <br>
+    <p><a href="rsapr.php">Go to Result</a></p>
+</body>
+</html>

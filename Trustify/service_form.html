@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Form | Trustify</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme_toggle.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="assets/img/Trustify..png" alt="logo" class="logo-small">
+                <h2>Trustify</h2>
+            </a>
+            <ul class="links">
+                <li><button class="change-theme"><i class="fas fa-sun"></i></button></li>
+                <li><button class="close-btn" onclick="window.close()">Close</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Service Application Form</h2>
+            <form id="service-form" method="POST" action="process_service.php">
+                <div class="input-field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-field">
+                    <label for="info">Information to be Processed</label>
+                    <textarea id="info" name="info" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

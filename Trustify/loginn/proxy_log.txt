@@ -1,0 +1,1 @@
+2024-12-29 18:40:57 - Domain not allowed: http://localhost/proxy/proxy.php?url=https://www.instagram.com/

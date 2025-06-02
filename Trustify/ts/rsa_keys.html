@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Génération de clés RSA</title>
+</head>
+<body>
+    <h1>Génération de clés RSA</h1>
+    <form action="rsa_keys.php" method="POST">
+        <label for="keySize">Taille de la clé :</label>
+        <select name="keySize" id="keySize">
+            <option value="1024">1024 bits</option>
+            <option value="2048" selected>2048 bits</option>
+            <option value="4096">4096 bits</option>
+        </select>
+        <br><br>
+        <button type="submit">Générer les clés</button>
+    </form>
+</body>
+</html>
